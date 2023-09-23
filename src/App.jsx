@@ -1,14 +1,23 @@
-import './App.css'
-import Header from './components/Header'
-import Footer from './components/Footer'
+import './App.css';
+import Home from './components/Layouts/Home';
+import About from './components/Layouts/About';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home />
+  },
+  {
+    path: '/about',
+    element: <About />
+  }
+]) 
 
 function App() {
-
-
   return (
     <>
-      <Header />
-      <Footer />
+      <RouterProvider router={router} />
     </>
   )
 }
