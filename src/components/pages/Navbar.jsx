@@ -6,6 +6,7 @@ import { openSidebar } from "../../features/sidebarSlice.jsx";
 
 const Navbar = () => {
   const { isSidebarOpen } = useSelector((state) => state.sidebar);
+  const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   return (
     <nav>
@@ -38,10 +39,12 @@ const Navbar = () => {
           </li>
         </ul>
         <div className="cart__container">
-          <Link to="" className="cart__image">
+          <Link to="/cart" className="cart__image">
             <span className="cart__info">
               <FaShoppingCart />
-              <span className="cart__image--count">0</span>
+              <span className="cart__image--count">
+                {cart.totalCart.quantity}
+              </span>
             </span>
           </Link>
           <div className="user__info">
