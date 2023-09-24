@@ -1,8 +1,12 @@
 import { MdMenu } from "react-icons/md";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { openSidebar } from "../../features/sidebarSlice.jsx";
 
 const Navbar = () => {
+  const { isSidebarOpen } = useSelector((state) => state.sidebar);
+  const dispatch = useDispatch();
   return (
     <nav>
       <div className="nav__center">
@@ -10,9 +14,14 @@ const Navbar = () => {
           <div className="nav__brand">
             shop <span>Online</span>
           </div>
-          <button className="nav__menu">
-            <MdMenu />
-          </button>
+          {!isSidebarOpen && (
+            <button
+              className="nav__menu"
+              onClick={() => dispatch(openSidebar())}
+            >
+              <MdMenu />
+            </button>
+          )}
         </div>
         <ul className="list-items">
           <li className="list-item">

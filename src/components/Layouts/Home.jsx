@@ -1,12 +1,13 @@
-import React from 'react'
-import Header from './Header'
+import Banner from "../pages/Banner";
+import Products from "../pages/Products";
 
 const Home = () => {
   return (
     <>
-        <Header />
+      <Banner />
+      <Products />
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
